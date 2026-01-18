@@ -1,0 +1,1 @@
+// leet code question,you have to write in leetcode
