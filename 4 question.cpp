@@ -2,19 +2,14 @@
 using namespace std;
 
 int main() {
-    int N;
-    cout << "Enter a number: ";
-    cin >> N;
+    int i = 1;          // start from 1
+    int sum = 0;        // to store sum of squares
 
-    cout << "Digits greater than or equal to 5 are:" << endl;
-
-    while (N > 0) {
-        int digit = N % 10;      // Extract last digit
-        if (digit >= 5) {        // Check if digit is greater than or equal to 5
-            cout << digit << endl;
-        }
-        N = N / 10;              // Remove last digit
+    while (i <= 100) {
+        sum += i * i;   // add square of i to sum
+        i++;            // move to next number
     }
 
+    cout << "Sum of squares from 1 to 100 is: " << sum << endl;
     return 0;
 }
