@@ -1,23 +1,16 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 int main() {
-    int N;
-    cout << "Enter a number: ";
-    cin >> N;
-
-    int sum = 0;
-    int temp = N;
-
-    while (temp > 0) {
-        int digit = temp % 10;      // Extract last digit
-        if (digit <= 5) {           // Check if digit is ≤ 5
-            sum += digit;           // Add digit to sum
-        }
-        temp = temp / 10;           // Remove last digit
+    double sum = 0.0;
+    
+    for (int i = 1; i <= 100; i++) {
+        sum += 1.0 / (i * i * i);
     }
-
-    cout << "Sum of digits less than or equal to 5: " << sum << endl;
-
+    
+    cout << fixed << setprecision(10);
+    cout << "Sum of the series 1/1³ + 1/2³ + 1/3³ + ... + 1/100³ is: " << sum << endl;
+    
     return 0;
 }
