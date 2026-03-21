@@ -2,22 +2,13 @@
 using namespace std;
 
 int main() {
-    int N;
-    cout << "Enter a number: ";
-    cin >> N;
-
-    int count = 0;
-    int temp = N;
-
-    while (temp > 0) {
-        int digit = temp % 10;      // Extract last digit
-        if (digit % 2 == 0) {       // Check if the digit is even
-            count++;                // Increment count
-        }
-        temp = temp / 10;           // Remove last digit
+    long long sum = 0;
+    
+    for (int i = 1; i <= 100; i++) {
+        sum += i * (i + 1) * (i + 1);
     }
-
-    cout << "Number of even digits: " << count << endl;
-
+    
+    cout << "Sum of the series 1*2² + 2*3² + 3*4² + ... + 100*101² is: " << sum << endl;
+    
     return 0;
 }
