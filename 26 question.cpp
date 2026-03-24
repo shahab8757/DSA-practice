@@ -1,33 +1,22 @@
-#include <iostream>
+//leet code 
+
+#include <bits/stdc++.h>
 using namespace std;
 
-// Function to calculate factorial of a digit
-int factorial(int n) {
-    int fact = 1;
-    for (int i = 1; i <= n; i++) {
-        fact *= i;
+// Function to find kth factor of n
+int kthFactor(int n, int k) {
+    for (int i = 1; i <= n; i++) {   // Loop through 1 to n
+        if (n % i == 0) {            // Check if i is a factor
+            k--;                     // Reduce k (we found one factor)
+            if (k == 0) return i;    // If k reaches 0, return the factor
+        }
     }
-    return fact;
+    return -1;   // If less than k factors exist
 }
 
 int main() {
-    int N;
-    cout << "Enter a number: ";
-    cin >> N;
-
-    int sum = 0;
-    int temp = N;
-
-    while (temp > 0) {
-        int digit = temp % 10;          // Extract last digit
-        sum += factorial(digit);        // Add factorial of digit to sum
-        temp = temp / 10;               // Remove last digit
-    }
-
-    cout << "Sum of factorials of digits: " << sum << endl;
-
+    int n, k;
+    cin >> n >> k;    // Example input: 12 3
+    cout << kthFactor(n, k) << endl;
     return 0;
 }
-
-
-// this program is difficult for me: yes this is the difficult question for me ,i will do after soem time ,when my doubt will solve .
