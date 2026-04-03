@@ -1,24 +1,16 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 int main() {
-    int N;
-    cout << "Enter a number: ";
-    cin >> N;
-
-    int product = 1;
-    int temp = N;
-
-    while (temp > 0) {
-        int digit = temp % 10;  // Extract last digit
-        product *= digit;        // Multiply with product
-        temp = temp / 10;        // Remove last digit
+    double sum = 0.0;
+    
+    for (int i = 1; i <= 100; i++) {
+        sum += 1.0 / i;
     }
-
-    if (product % 2 == 0)
-        cout << "It will give Even Product" << endl;
-    else
-        cout << "It will give Odd Product" << endl;
-
+    
+    cout << fixed << setprecision(6);
+    cout << "Sum of the series 1/1 + 1/2 + 1/3 + ... + 1/100 is: " << sum << endl;
+    
     return 0;
 }
