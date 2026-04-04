@@ -1,31 +1,20 @@
 #include <iostream>
 using namespace std;
 
-// Function to check if digits are in increasing order
-bool isIncreasing(int N) {
-    int prevDigit = 10;  // Initialize to a number greater than any digit
+int main() {
+    int a, b;
+    long long result = 1;  // To handle large results
 
-    while (N > 0) {
-        int digit = N % 10;  // Extract last digit
-        if (digit >= prevDigit) {
-            return false;    // Not increasing
-        }
-        prevDigit = digit;   // Update previous digit
-        N = N / 10;          // Remove last digit
+    cout << "Enter base (a): ";
+    cin >> a;
+    cout << "Enter exponent (b): ";
+    cin >> b;
+
+    for (int i = 1; i <= b; i++) {
+        result *= a;  // Multiply a, b times
     }
 
-    return true;             // All digits are in increasing order
-}
-
-int main() {
-    int N;
-    cout << "Enter a number: ";
-    cin >> N;
-
-    if (isIncreasing(N))
-        cout << "true" << endl;
-    else
-        cout << "false" << endl;
+    cout << a << " to the power " << b << " is: " << result << endl;
 
     return 0;
 }
