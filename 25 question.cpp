@@ -1,19 +1,30 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-int commonFactors(int a, int b) {
-    int count = 0;
-    int limit = min(a, b);
-    for (int i = 1; i <= limit; i++) {
-        if (a % i == 0 && b % i == 0) {
-            count++;
-        }
+// Function to calculate factorial of a digit
+int factorial(int n) {
+    int fact = 1;
+    for (int i = 1; i <= n; i++) {
+        fact *= i;
     }
-    return count;
+    return fact;
 }
 
 int main() {
-    cout << commonFactors(12, 6) << endl;   // Output: 4
-    cout << commonFactors(25, 30) << endl;  // Output: 2
+    int N;
+    cout << "Enter a number: ";
+    cin >> N;
+
+    cout << "Factorial of each digit:" << endl;
+
+    while (N > 0) {
+        int digit = N % 10;         // Extract last digit
+        cout << digit << "! = " << factorial(digit) << endl;
+        N = N / 10;                 // Remove last digit
+    }
+
     return 0;
 }
+
+
+ 
