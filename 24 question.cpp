@@ -1,26 +1,28 @@
-// leet code 
-#include <iostream>
+// leet code
+
+#include <bits/stdc++.h>
 using namespace std;
 
-int countDigits(int num) {
-    int original = num;
-    int count = 0;
-
-    while (num > 0) {
-        int digit = num % 10; // extract last digit
-        if (original % digit == 0) { // check if divides
-            count++;
-        }
-        num /= 10; // remove last digit
+bool isPrime(int num) {
+    if (num < 2) return false;
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) return false;
     }
-    return count;
+    return true;
+}
+
+bool isThreeDivisors(int n) {
+    int root = sqrt(n);
+    if (root * root != n) return false; // Not a perfect square
+    return isPrime(root);
 }
 
 int main() {
-    int num;
-    cout << "Enter a number: ";
-    cin >> num;
-
-    cout << "Digits that divide the number: " << countDigits(num) << endl;
+    cout << boolalpha;
+    cout << isThreeDivisors(2) << endl;  // false
+    cout << isThreeDivisors(4) << endl;  // true
+    cout << isThreeDivisors(9) << endl;  // true
+    cout << isThreeDivisors(16) << endl; // false
     return 0;
 }
+
